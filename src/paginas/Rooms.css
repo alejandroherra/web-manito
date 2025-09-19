@@ -1,0 +1,461 @@
+/* Contenedor principal optimizado */
+.rooms-container {
+  padding: 150px 40px 90px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px; /* Aumentado para mejor espacio */
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Título principal */
+.rooms-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.rooms-title::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #f5a623, #0f0c0c);
+  border-radius: 2px;
+}
+
+/* Descripción */
+.rooms-description {
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+  color: #faf7f7;
+  max-width: 700px;
+  line-height: 1.5;
+}
+
+/* Grid - UNA COLUMNA VERTICAL */
+.rooms-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem; /* Más espacio entre tarjetas */
+  width: 100%;
+  max-width: 900px; /* Más ancho para tarjetas */
+}
+
+/* Tarjetas de habitación rediseñadas */
+.room-card {
+  background: #a19e9e;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  padding: 2.5rem; /* Más padding */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  min-height: 550px; /* Altura mínima para consistencia */
+}
+
+.room-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Título de habitación */
+.room-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #0f0c0c;
+}
+
+/* Descripción de habitación */
+.room-description {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #0f0c0c; /* Color negro */
+  line-height: 1.6;
+  padding: 12px 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 12, 12, 0.1),
+    rgba(15, 12, 12, 0.2)
+  );
+  border: 1px solid rgba(15, 12, 12, 0.15);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  text-shadow: none;
+}
+
+.room-description:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(15, 12, 12, 0.15),
+    rgba(15, 12, 12, 0.25)
+  );
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(15, 12, 12, 0.1);
+}
+
+/* Carrusel de imágenes - ARREGLADO */
+.room-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-top: 1.5rem;
+  height: 320px; /* Altura fija para el carrusel */
+  background-color: #f8f9fa; /* Fondo gris claro */
+  border: 1px solid #e0e0e0; /* Borde sutil */
+}
+
+/* Imágenes COMPLETAMENTE ARREGLADAS */
+.room-image {
+  width: 100%;
+  height: 320px; /* Altura generosa */
+  object-fit: contain; /* CAMBIADO: Para ver imagen completa sin recortes */
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+  background-color: #f8f9fa; /* Fondo para espacios vacíos */
+}
+
+.room-image:hover {
+  transform: scale(1.02); /* Zoom muy sutil en hover */
+}
+
+/* Botones de carrusel mejorados */
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(15, 12, 12, 0.8);
+  color: #fff;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 10;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+}
+
+.carousel-button:hover {
+  background: rgba(245, 166, 35, 0.9);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-button.prev {
+  left: 15px;
+}
+
+.carousel-button.next {
+  right: 15px;
+}
+
+/* RESPONSIVE DESIGN COMPLETO */
+
+/* Tablets grandes (1024px y menos) */
+@media (max-width: 1024px) {
+  .rooms-container {
+    padding: 130px 30px 70px;
+    max-width: 95%;
+  }
+
+  .rooms-grid {
+    max-width: 800px;
+    gap: 2.5rem;
+  }
+
+  .room-card {
+    padding: 2rem;
+    min-height: 500px;
+  }
+
+  .room-carousel {
+    height: 280px;
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+  }
+
+  .room-image {
+    height: 280px;
+    object-fit: contain;
+    background-color: #f8f9fa;
+  }
+
+  .room-title {
+    font-size: 1.8rem;
+  }
+}
+
+/* Tablets (768px y menos) */
+@media (max-width: 768px) {
+  .rooms-container {
+    padding: 110px 20px 60px;
+    max-width: 100%;
+  }
+
+  .rooms-title {
+    font-size: 2.2rem;
+  }
+
+  .rooms-description {
+    font-size: 1rem;
+    padding: 0 1rem;
+    max-width: 600px;
+  }
+
+  .rooms-grid {
+    max-width: 100%;
+    gap: 2rem;
+  }
+
+  .room-card {
+    padding: 1.8rem;
+    min-height: 450px;
+  }
+
+  .room-carousel {
+    height: 250px;
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+  }
+
+  .room-image {
+    height: 250px;
+    object-fit: contain;
+    background-color: #f8f9fa;
+  }
+
+  .room-title {
+    font-size: 1.6rem;
+  }
+
+  .room-description {
+    font-size: 1rem;
+    padding: 10px 16px;
+  }
+}
+
+/* Móviles (640px y menos) */
+@media (max-width: 640px) {
+  .rooms-container {
+    padding: 100px 15px 50px;
+  }
+
+  .rooms-title {
+    font-size: 1.9rem;
+  }
+
+  .rooms-description {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    padding: 0 0.5rem;
+  }
+
+  .rooms-grid {
+    gap: 1.8rem;
+  }
+
+  .room-card {
+    padding: 1.5rem;
+    border-radius: 15px;
+    min-height: 400px;
+  }
+
+  .room-carousel {
+    height: 220px;
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+  }
+
+  .room-image {
+    height: 220px;
+    border-radius: 12px;
+    object-fit: contain;
+    background-color: #f8f9fa;
+  }
+
+  .room-title {
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .room-description {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .carousel-button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}
+
+/* Móviles pequeños (480px y menos) */
+@media (max-width: 480px) {
+  .rooms-container {
+    padding: 90px 10px 40px;
+  }
+
+  .rooms-title {
+    font-size: 1.7rem;
+  }
+
+  .rooms-description {
+    font-size: 0.9rem;
+  }
+
+  .room-card {
+    padding: 1.2rem;
+    min-height: 350px;
+  }
+
+  .room-carousel {
+    height: 180px;
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+  }
+
+  .room-image {
+    height: 180px;
+    object-fit: contain;
+    background-color: #f8f9fa;
+  }
+
+  .room-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .room-description {
+    font-size: 0.9rem;
+  }
+
+  .carousel-button {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Móviles muy pequeños (360px y menos) */
+@media (max-width: 360px) {
+  .rooms-container {
+    padding: 80px 8px 35px;
+  }
+
+  .rooms-title {
+    font-size: 1.5rem;
+  }
+
+  .room-card {
+    padding: 1rem;
+    min-height: 320px;
+  }
+
+  .room-carousel {
+    height: 160px;
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+  }
+
+  .room-image {
+    height: 160px;
+    object-fit: contain;
+    background-color: #f8f9fa;
+  }
+
+  .room-title {
+    font-size: 1.2rem;
+  }
+
+  .room-description {
+    font-size: 0.85rem;
+  }
+
+  .carousel-button {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Optimización para animaciones suaves */
+@media (prefers-reduced-motion: reduce) {
+  .room-card,
+  .carousel-button,
+  .room-image {
+    transition: none;
+  }
+}
+
+/* NUEVO: Botón de reserva consistente */
+.room-book-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: rgb(2, 57, 78);
+  color: white;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  position: relative;
+  z-index: 5;
+
+  /* Centrado perfecto */
+  align-self: center;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.room-book-button:hover {
+  background-color: rgb(1, 45, 62);
+  border-color: #f5a623;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(2, 57, 78, 0.3);
+}
+
+.room-book-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(2, 57, 78, 0.3);
+}
+
+/* RESPONSIVE para el botón */
+@media (max-width: 768px) {
+  .room-book-button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .room-book-button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    margin-top: 1rem;
+  }
+}

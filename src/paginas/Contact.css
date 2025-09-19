@@ -1,0 +1,592 @@
+/* ===================================================================
+   VARIABLES CSS PARA MANTENIMIENTO Y CONSISTENCIA
+   =================================================================== */
+:root {
+  /* Colores principales */
+  --primary-gold: #f5a623;
+  --primary-gold-light: #ffd700;
+  --primary-gold-dark: #d4941a;
+  --background-dark: #0f0f0f;
+  --background-medium: #1a1a1a;
+  --background-light: #2d2d2d;
+
+  /* Colores de redes sociales */
+  --whatsapp-color: #25d366;
+  --whatsapp-hover: #1da851;
+  --facebook-color: #1877f2;
+  --facebook-hover: #166fe5;
+  --instagram-color: #e4405f;
+  --instagram-hover: #d73a56;
+  --maps-color: #4285f4;
+  --maps-hover: #1a73e8;
+
+  /* Espaciado y timing */
+  --container-padding: 2rem;
+  --card-gap: 2rem;
+  --border-radius: 20px;
+  --transition-speed: 0.3s;
+  --animation-duration: 0.6s;
+  --stagger-delay: 0.15s;
+
+  /* Sombras */
+  --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.2);
+  --shadow-heavy: 0 15px 35px rgba(0, 0, 0, 0.3);
+  --shadow-glow: 0 0 30px;
+}
+
+/* ===================================================================
+   CONFIGURACIÓN GLOBAL Y RESET
+   =================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Configuración del body cuando está activa la página de contacto */
+.contact-page-active {
+  background: linear-gradient(
+    135deg,
+    var(--background-dark) 0%,
+    var(--background-medium) 50%,
+    var(--background-light) 100%
+  );
+  min-height: 100vh;
+  overflow-x: hidden; /* Prevenir scroll horizontal durante animaciones */
+}
+
+/* ===================================================================
+   CONTENEDOR PRINCIPAL
+   =================================================================== */
+.contact-container {
+  max-width: 800px; /* Ancho óptimo para diseño vertical */
+  margin: 0 auto;
+  padding: var(--container-padding);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+
+  /* Animación de entrada del contenedor */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInContainer var(--animation-duration) ease-out 0.2s forwards;
+}
+
+/* ===================================================================
+   TÍTULO PRINCIPAL
+   =================================================================== */
+.contact-title {
+  font-size: clamp(2rem, 5vw, 3.5rem); /* Responsive typography */
+  font-weight: 500;
+  text-align: center;
+  color: transparent;
+  background: linear-gradient(
+    45deg,
+    var(--primary-gold),
+    var(--primary-gold-light),
+    #ffffff
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  letter-spacing: 2px;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+  padding-top: 55px;
+  position: relative;
+
+  /* Animación de entrada del título */
+  opacity: 0;
+  transform: translateY(-20px) scale(0.95);
+  animation: slideInTitle var(--animation-duration) ease-out 0.4s forwards;
+
+  /* Efecto de resplandor sutil */
+  text-shadow: 0 0 20px rgba(245, 166, 35, 0.3);
+}
+
+/* Línea decorativa bajo el título */
+.contact-title::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--primary-gold),
+    var(--primary-gold-light)
+  );
+  border-radius: 2px;
+  opacity: 0;
+  animation: expandLine 0.8s ease-out 0.8s forwards;
+}
+
+/* ===================================================================
+   GRID VERTICAL DE TARJETAS
+   =================================================================== */
+.contact-grid {
+  display: flex;
+  flex-direction: column; /* Disposición vertical */
+  gap: var(--card-gap);
+  width: 100%;
+  max-width: 500px; /* Ancho óptimo para tarjetas verticales */
+}
+
+/* ===================================================================
+   TARJETAS DE CONTACTO
+   =================================================================== */
+.contact-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  backdrop-filter: blur(10px); /* Efecto glassmorphism */
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  /* Transiciones suaves */
+  transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Estado inicial para animación */
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+
+  /* Sombra base */
+  box-shadow: var(--shadow-medium);
+
+  /* Cursor pointer para indicar interactividad */
+  cursor: pointer;
+}
+
+/* Animaciones escalonadas para cada tarjeta */
+.contact-card:nth-child(1) {
+  animation: slideInCard var(--animation-duration) ease-out 0.6s forwards;
+}
+
+.contact-card:nth-child(2) {
+  animation: slideInCard var(--animation-duration) ease-out
+    calc(0.6s + var(--stagger-delay)) forwards;
+}
+
+.contact-card:nth-child(3) {
+  animation: slideInCard var(--animation-duration) ease-out
+    calc(0.6s + var(--stagger-delay) * 2) forwards;
+}
+
+.contact-card:nth-child(4) {
+  animation: slideInCard var(--animation-duration) ease-out
+    calc(0.6s + var(--stagger-delay) * 3) forwards;
+}
+
+/* Efecto hover para las tarjetas */
+.contact-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-heavy);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Efecto de brillo que se mueve al hacer hover */
+.contact-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.6s ease;
+  z-index: 1;
+}
+
+.contact-card:hover::before {
+  left: 100%;
+}
+
+/* ===================================================================
+   ENLACES DE CONTACTO
+   =================================================================== */
+.contact-link {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  z-index: 2;
+
+  /* Transición suave para el enlace */
+  transition: transform var(--transition-speed) ease;
+}
+
+.contact-link:hover {
+  transform: scale(1.1);
+}
+
+/* ===================================================================
+   ICONOS DE REDES SOCIALES
+   =================================================================== */
+.contact-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+/* Colores específicos por red social */
+.contact-card:nth-child(1) .contact-icon {
+  color: var(--whatsapp-color);
+}
+
+.contact-card:nth-child(1):hover .contact-icon {
+  color: var(--whatsapp-hover);
+  filter: drop-shadow(var(--shadow-glow) var(--whatsapp-color));
+}
+
+.contact-card:nth-child(2) .contact-icon {
+  color: var(--facebook-color);
+}
+
+.contact-card:nth-child(2):hover .contact-icon {
+  color: var(--facebook-hover);
+  filter: drop-shadow(var(--shadow-glow) var(--facebook-color));
+}
+
+.contact-card:nth-child(3) .contact-icon {
+  color: var(--instagram-color);
+}
+
+.contact-card:nth-child(3):hover .contact-icon {
+  color: var(--instagram-hover);
+  filter: drop-shadow(var(--shadow-glow) var(--instagram-color));
+}
+
+.contact-card:nth-child(4) .contact-icon {
+  color: var(--maps-color);
+}
+
+.contact-card:nth-child(4):hover .contact-icon {
+  color: var(--maps-hover);
+  filter: drop-shadow(var(--shadow-glow) var(--maps-color));
+}
+
+/* Animación de rotación sutil en hover */
+.contact-icon:hover {
+  transform: rotate(5deg) scale(1.1);
+}
+
+/* ===================================================================
+   TÍTULOS Y DESCRIPCIONES DE TARJETAS
+   =================================================================== */
+.contact-heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 2;
+
+  /* Transición para efectos hover */
+  transition: color var(--transition-speed) ease;
+}
+
+.contact-description {
+  font-size: 1rem;
+  color: #cccccc;
+  line-height: 1.6;
+  font-weight: 300;
+  position: relative;
+  z-index: 2;
+
+  /* Transición para efectos hover */
+  transition: color var(--transition-speed) ease;
+}
+
+/* Efecto hover en textos */
+.contact-card:hover .contact-heading {
+  color: var(--primary-gold-light);
+}
+
+.contact-card:hover .contact-description {
+  color: #ffffff;
+}
+
+/* ===================================================================
+   KEYFRAMES PARA ANIMACIONES
+   =================================================================== */
+
+/* Animación de entrada del contenedor */
+@keyframes fadeInContainer {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación de entrada del título */
+@keyframes slideInTitle {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Animación de la línea decorativa */
+@keyframes expandLine {
+  from {
+    opacity: 0;
+    width: 0;
+  }
+  to {
+    opacity: 1;
+    width: 80px;
+  }
+}
+
+/* Animación de entrada de las tarjetas */
+@keyframes slideInCard {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Animación de pulso sutil para llamar la atención */
+@keyframes subtlePulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/* ===================================================================
+   RESPONSIVE DESIGN
+   =================================================================== */
+
+/* Tablets grandes (1024px y menos) */
+@media (max-width: 1024px) {
+  .contact-container {
+    padding: 1.5rem;
+    gap: 2.5rem;
+  }
+
+  .contact-title {
+    font-size: clamp(1.8rem, 4.5vw, 3rem);
+  }
+
+  .contact-icon {
+    font-size: 3.5rem;
+  }
+}
+
+/* Tablets (768px y menos) */
+@media (max-width: 768px) {
+  :root {
+    --container-padding: 1.5rem;
+    --card-gap: 1.5rem;
+  }
+
+  .contact-container {
+    padding: var(--container-padding);
+    gap: 2rem;
+    min-height: auto;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .contact-card {
+    padding: 1.5rem;
+  }
+
+  .contact-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .contact-heading {
+    font-size: 1.3rem;
+  }
+
+  .contact-description {
+    font-size: 0.95rem;
+  }
+}
+
+/* Móviles (480px y menos) */
+@media (max-width: 480px) {
+  :root {
+    --container-padding: 1rem;
+    --card-gap: 1.2rem;
+    --border-radius: 15px;
+  }
+
+  .contact-container {
+    gap: 1.5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .contact-title {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-title::after {
+    width: 60px;
+    height: 3px;
+    bottom: -10px;
+  }
+
+  .contact-card {
+    padding: 1.2rem;
+  }
+
+  .contact-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .contact-heading {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .contact-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  /* Reducir efectos hover en móviles para mejor rendimiento */
+  .contact-card:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+}
+
+/* Móviles muy pequeños (360px y menos) */
+@media (max-width: 360px) {
+  .contact-container {
+    padding: 0.8rem;
+    gap: 1rem;
+  }
+
+  .contact-card {
+    padding: 1rem;
+  }
+
+  .contact-icon {
+    font-size: 2.2rem;
+  }
+
+  .contact-heading {
+    font-size: 1.1rem;
+  }
+
+  .contact-description {
+    font-size: 0.85rem;
+  }
+}
+
+/* ===================================================================
+   OPTIMIZACIONES PARA ACCESIBILIDAD Y RENDIMIENTO
+   =================================================================== */
+
+/* Reducir animaciones para usuarios que prefieren menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .contact-card::before {
+    display: none;
+  }
+}
+
+/* Mejorar contraste para modo alto contraste */
+@media (prefers-contrast: high) {
+  .contact-card {
+    border: 3px solid #ffffff;
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .contact-description {
+    color: #ffffff;
+  }
+}
+
+/* Optimización para dispositivos con pantalla táctil */
+@media (hover: none) and (pointer: coarse) {
+  .contact-card:hover {
+    transform: none;
+  }
+
+  .contact-card:active {
+    transform: scale(0.98);
+  }
+
+  .contact-icon:hover {
+    transform: none;
+  }
+}
+
+/* ===================================================================
+   ESTADOS DE FOCO PARA ACCESIBILIDAD
+   =================================================================== */
+.contact-link:focus {
+  outline: 3px solid var(--primary-gold);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+.contact-link:focus-visible {
+  outline: 3px solid var(--primary-gold);
+  outline-offset: 2px;
+}
+
+/* ===================================================================
+   LOADING STATES Y FALLBACKS
+   =================================================================== */
+
+/* Fallback para navegadores que no soportan backdrop-filter */
+@supports not (backdrop-filter: blur(10px)) {
+  .contact-card {
+    background: rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* Fallback para navegadores que no soportan clamp() */
+@supports not (font-size: clamp(1rem, 2vw, 2rem)) {
+  .contact-title {
+    font-size: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    .contact-title {
+      font-size: 2.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .contact-title {
+      font-size: 2rem;
+    }
+  }
+}

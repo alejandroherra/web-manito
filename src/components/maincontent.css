@@ -1,0 +1,654 @@
+/* OPTIMIZACIÓN PARA RENDIMIENTO */
+* {
+  will-change: auto;
+}
+
+/* Contenedor principal */
+.main-content {
+  padding: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  color: #222;
+}
+
+/* Sección hero con imagen de fondo y animación optimizada */
+.hero-section {
+  position: relative;
+  height: 20vh;
+  min-height: 500px;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background-image: url("/src/assets/casa-manito-hero.webp");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideInUp 0.8s ease-out 0.2s forwards;
+}
+
+/* Keyframes optimizados */
+@keyframes slideInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInContent {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInSections {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Overlay optimizado */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  opacity: 0;
+  animation: fadeIn 0.6s ease-out 0.4s forwards;
+}
+
+/* Contenido del hero optimizado */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  padding: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideInContent 0.6s ease-out 0.6s forwards;
+}
+
+.hero-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  letter-spacing: 10px;
+  transform: scale(0.95);
+  animation: scaleIn 0.5s ease-out 0.8s forwards;
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+}
+
+/* Contenedor optimizado */
+.content-sections {
+  padding: 0 5rem 7rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideInSections 0.6s ease-out 1s forwards;
+}
+
+/* Secciones de contenido base */
+.topic {
+  margin-bottom: 6rem;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.topic h1 {
+  font-size: 2rem;
+  margin: 0 auto 1rem;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+  position: relative;
+}
+
+.topic p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 2;
+  position: relative;
+}
+
+/* Enlace optimizado */
+.view-more-link {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: rgb(2, 57, 78);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  margin-top: 1rem;
+  z-index: 2;
+  position: relative;
+}
+
+.view-more-link:hover {
+  background-color: rgb(1, 45, 62);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(2, 57, 78, 0.3);
+}
+
+/* 🎨 SECCIONES CON IMÁGENES DE FONDO */
+
+/* Sección de inversión */
+.main-content .topic-investment {
+  position: relative;
+  background-image: url("/src/assets/inversion.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  overflow: hidden;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-content .topic-investment::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.main-content .topic-investment h1,
+.main-content .topic-investment p {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Sección de habitaciones */
+.main-content .topic-rooms {
+  position: relative;
+  background-image: url("/src/assets/Garrobo3.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  overflow: hidden;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-content .topic-rooms::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.main-content .topic-rooms h1,
+.main-content .topic-rooms p {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Sección de tours */
+.main-content .topic-tours {
+  position: relative;
+  background-image: url("/src/assets/Bio4.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  overflow: hidden;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-content .topic-tours::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.main-content .topic-tours h1,
+.main-content .topic-tours p {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Botones mejorados para fondos oscuros */
+.main-content .topic-rooms .view-more-link,
+.main-content .topic-tours .view-more-link,
+.main-content .topic-investment .view-more-link {
+  background-color: rgba(245, 166, 35, 0.9);
+  border: 2px solid #f5a623;
+  color: white;
+  font-weight: bold;
+}
+
+.main-content .topic-rooms .view-more-link:hover,
+.main-content .topic-tours .view-more-link:hover,
+.main-content .topic-investment .view-more-link:hover {
+  background-color: #f5a623;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(245, 166, 35, 0.4);
+}
+
+/* RESPONSIVE OPTIMIZADO */
+@media (max-width: 768px) {
+  .hero-section {
+    height: 60vh;
+    min-height: 400px;
+    background-size: cover;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .content-sections {
+    padding: 0 2rem 4rem;
+  }
+
+  .topic {
+    padding: 1.5rem;
+  }
+
+  .topic h1 {
+    font-size: 1.5rem;
+  }
+
+  .topic p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .view-more-link {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+
+  /* Imágenes de fondo en móviles */
+  .main-content .topic-rooms,
+  .main-content .topic-tours,
+  .main-content .topic-investment {
+    min-height: 300px;
+    background-attachment: scroll;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    height: 50vh;
+    min-height: 350px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .content-sections {
+    padding: 0 1rem 3rem;
+  }
+
+  .main-content .topic-rooms,
+  .main-content .topic-tours,
+  .main-content .topic-investment {
+    min-height: 250px;
+    border-radius: 10px;
+  }
+}
+
+/* ESTILOS GLOBALES OPTIMIZADOS */
+body {
+  font-family: Arial, sans-serif;
+  color: #222;
+  background-color: #201f1f;
+  margin: 0;
+  padding: 0;
+}
+
+/* 🐒 FORMULARIO DE CONTACTO CON IMAGEN DEL MONO */
+.ContactForm {
+  /* IMAGEN DE FONDO - MONO */
+  background-image: url("/src/assets/Mono.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+
+  /* DISEÑO */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  border: 3px solid rgb(2, 57, 78);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* OVERLAY OSCURO PARA LEGIBILIDAD */
+.ContactForm::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+  border-radius: inherit;
+}
+
+/* EFECTO DE BRILLO AL HACER HOVER */
+.ContactForm::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.3s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.ContactForm:hover::after {
+  left: 100%;
+}
+
+.ContactForm h2 {
+  color: #ffffff;
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
+  letter-spacing: 1px;
+  background: linear-gradient(45deg, #ffffff, #f5a623);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  z-index: 3;
+}
+
+.ContactForm .Iconos {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 3;
+}
+
+.ContactForm .Iconos a {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  background: rgba(2, 57, 78, 0.3);
+  border: 2px solid rgba(2, 57, 78, 0.7);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+}
+
+.ContactForm .Iconos a::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(
+    circle,
+    rgba(245, 166, 35, 0.4) 0%,
+    transparent 70%
+  );
+  transition: all 0.3s ease;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.ContactForm .Iconos a:hover::before {
+  width: 100px;
+  height: 100px;
+}
+
+.ContactForm .Iconos svg {
+  font-size: 3rem;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.6));
+  z-index: 1;
+  position: relative;
+}
+
+.ContactForm .Iconos a:hover {
+  transform: translateY(-5px) scale(1.05);
+  background: rgba(2, 57, 78, 0.5);
+  border-color: #f5a623;
+  box-shadow: 0 10px 25px rgba(2, 57, 78, 0.6), 0 0 20px rgba(245, 166, 35, 0.4);
+}
+
+.ContactForm .Iconos a:hover svg {
+  color: #f5a623;
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Efectos específicos por ícono */
+.ContactForm .Iconos a:nth-child(1):hover svg {
+  color: #25d366; /* Verde WhatsApp */
+}
+
+.ContactForm .Iconos a:nth-child(2):hover svg {
+  color: #1877f2; /* Azul Facebook */
+}
+
+.ContactForm .Iconos a:nth-child(3):hover svg {
+  color: #e4405f; /* Rosa Instagram */
+}
+
+/* RESPONSIVE CONTACTFORM CON IMAGEN */
+@media (max-width: 768px) {
+  .ContactForm {
+    max-width: 100%;
+    margin: 0 1rem;
+    padding: 2.5rem 1.5rem;
+    border-radius: 15px;
+    background-attachment: scroll;
+  }
+
+  .ContactForm::before {
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  .ContactForm h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
+  }
+
+  .ContactForm .Iconos {
+    gap: 1.5rem;
+    max-width: 100%;
+  }
+
+  .ContactForm .Iconos a {
+    padding: 1.2rem;
+    background: rgba(2, 57, 78, 0.4);
+  }
+
+  .ContactForm .Iconos svg {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .ContactForm {
+    padding: 2rem 1rem;
+    margin: 0 0.5rem;
+  }
+
+  .ContactForm::before {
+    background: rgba(0, 0, 0, 0.75);
+  }
+
+  .ContactForm h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .ContactForm .Iconos {
+    gap: 1rem;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .ContactForm .Iconos a {
+    width: 100%;
+    max-width: 300px;
+    padding: 1rem;
+    background: rgba(2, 57, 78, 0.5);
+  }
+
+  .ContactForm .Iconos svg {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ContactForm {
+    padding: 1.5rem 0.8rem;
+    border-radius: 12px;
+    border-width: 2px;
+  }
+
+  .ContactForm::before {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .ContactForm h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .ContactForm .Iconos a {
+    padding: 0.8rem;
+    border-radius: 12px;
+  }
+
+  .ContactForm .Iconos svg {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .ContactForm {
+    padding: 1.2rem 0.5rem;
+  }
+
+  .ContactForm h2 {
+    font-size: 1.4rem;
+  }
+
+  .ContactForm .Iconos svg {
+    font-size: 1.8rem;
+  }
+}
+
+/* OPTIMIZACIONES FINALES */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

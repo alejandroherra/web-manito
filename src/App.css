@@ -1,0 +1,37 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0; /* Elimina cualquier padding que pueda afectar el diseño */
+  width: 100%; /* Asegura que el body ocupe todo el ancho */
+  min-height: 100vh; /* Asegura que el body ocupe toda la altura de la pantalla */
+  display: flex;
+  flex-direction: column; /* Asegura que el contenido se apile verticalmente */
+  box-sizing: border-box;
+}
+
+main {
+  flex: 1; /* Asegura que el contenido principal ocupe el espacio disponible */
+}
+
+footer {
+  width: 100%; /* Asegura que el footer abarque todo el ancho */
+  background-color: #0f0c0c;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px 0;
+  box-sizing: border-box;
+}

@@ -1,0 +1,421 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #0f0c0c;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5rem 0 0; /* 👈 SIN PADDING IZQUIERDO */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+/* Logo - PEGADO A LA IZQUIERDA COMPLETAMENTE */
+.logo {
+  position: absolute;
+  left: 0; /* 👈 PEGADO AL BORDE IZQUIERDO */
+  top: 0; /* 👈 PEGADO AL BORDE SUPERIOR */
+  height: 100%; /* 👈 ALTURA COMPLETA */
+  width: 80px; /* 👈 ANCHO MÍNIMO PARA QUE SE VEA */
+  z-index: 1001;
+  flex-shrink: 0;
+  display: flex; /* 👈 PARA CENTRAR EL CONTENIDO */
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-link {
+  text-decoration: none;
+  color: #ffffff;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* 👈 ALTURA COMPLETA */
+  width: 100%; /* 👈 ANCHO COMPLETO DEL CONTENEDOR */
+}
+
+/* 🎯 LOGO IMAGE - VISIBLE Y CENTRADO */
+.logo-image {
+  width: 40px; /* 👈 ANCHO FIJO PARA QUE SE VEA */
+  height: 40px; /* 👈 ALTURA FIJA PARA QUE SE VEA */
+  background-image: url("/src/assets/Logo.webp");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.3s ease;
+  flex-shrink: 0; /* 👈 NO SE ENCOGE */
+}
+
+.logo-image:hover {
+  transform: scale(1.05);
+}
+
+/* Navegación - CENTRADA PERFECTAMENTE */
+.nav {
+  position: absolute;
+  left: 50%; /* 👈 CENTRADA EN LA PANTALLA */
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.nav-list li {
+  font-size: 1rem;
+}
+
+.nav-list li a {
+  text-decoration: none;
+  color: #ffffff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.nav-list li a:hover {
+  color: #f5a623;
+  background-color: rgba(245, 166, 35, 0.15);
+  transform: translateY(-1px);
+}
+
+.nav-list li.active a {
+  font-weight: bold;
+  color: #f5a623;
+  background-color: rgba(245, 166, 35, 0.2);
+  box-shadow: 0 2px 8px rgba(245, 166, 35, 0.3);
+}
+
+/* Menú hamburguesa (oculto en desktop) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0.5rem;
+  background: none;
+  border: none;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: #ffffff;
+  margin: 3px 0;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+/* Animación del hamburguesa cuando está activo */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Desktop grande (1200px+) */
+@media (min-width: 1200px) {
+  .header {
+    padding: 0 3rem 0 0; /* 👈 SIN PADDING IZQUIERDO */
+  }
+
+  .nav-list {
+    gap: 3rem;
+  }
+
+  .nav-list li a {
+    padding: 0.7rem 1.4rem;
+    font-size: 1.05rem;
+  }
+
+  .logo {
+    width: 90px; /* 👈 MÁS ANCHO EN DESKTOP */
+  }
+
+  .logo-image {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+/* Desktop mediano (992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .header {
+    padding: 0 2.5rem 0 0; /* 👈 SIN PADDING IZQUIERDO */
+  }
+
+  .nav-list {
+    gap: 2.2rem;
+  }
+
+  .logo {
+    width: 85px;
+  }
+
+  .logo-image {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* Tablets grandes (769px - 991px) */
+@media (min-width: 769px) and (max-width: 991px) {
+  .header {
+    padding: 0 2rem 0 0; /* 👈 SIN PADDING IZQUIERDO */
+  }
+
+  .nav-list {
+    gap: 1.8rem;
+  }
+
+  .nav-list li a {
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .logo {
+    width: 80px;
+  }
+
+  .logo-image {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+/* Tablets (641px - 768px) */
+@media (min-width: 641px) and (max-width: 768px) {
+  .header {
+    padding: 0 1.5rem 0 0; /* 👈 SIN PADDING IZQUIERDO */
+  }
+
+  .nav-list {
+    gap: 1.5rem;
+  }
+
+  .nav-list li {
+    font-size: 0.9rem;
+  }
+
+  .nav-list li a {
+    padding: 0.4rem 0.8rem;
+  }
+
+  .logo {
+    width: 75px;
+  }
+
+  .logo-image {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* 🚀 MÓVILES - HAMBURGUESA AJUSTABLE */
+@media (max-width: 640px) {
+  .header {
+    padding: 0 1rem 0 0; /* 👈 SIN PADDING IZQUIERDO */
+    justify-content: center;
+    position: relative;
+  }
+
+  /* Logo pegado a la izquierda en móviles */
+  .logo {
+    position: absolute;
+    left: 0; /* 👈 PEGADO AL BORDE */
+    top: 0; /* 👈 PEGADO ARRIBA */
+    height: 100%; /* 👈 ALTURA COMPLETA */
+    width: 60px; /* 👈 ANCHO REDUCIDO PARA MÓVIL */
+  }
+
+  .logo-image {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* Hamburguesa - CAMBIA ESTE VALOR PARA MOVERLA */
+  .hamburger {
+    display: flex;
+    position: absolute;
+    left: 50%; /* 🎯 CAMBIA AQUÍ: 50%=centro, 40%=izquierda, 30%=más izquierda */
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .nav {
+    position: fixed;
+    top: 60px;
+    left: -100%;
+    transform: none;
+    width: 100%;
+    height: calc(100vh - 60px);
+    background-color: #0f0c0c;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+  }
+
+  .nav.active {
+    left: 0;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 0;
+    padding: 2rem 0;
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .nav-list li {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-list li a {
+    display: block;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 0;
+    width: 100%;
+    transform: none;
+  }
+
+  .nav-list li a:hover {
+    background-color: rgba(245, 166, 35, 0.2);
+    transform: none;
+  }
+
+  .nav-list li.active a {
+    background-color: rgba(245, 166, 35, 0.3);
+  }
+}
+
+/* Móviles pequeños (480px y menos) */
+@media (max-width: 480px) {
+  .header {
+    padding: 0 0.8rem 0 0; /* 👈 SIN PADDING IZQUIERDO */
+    height: 55px;
+    justify-content: center;
+  }
+
+  .logo {
+    left: 0; /* 👈 PEGADO AL BORDE */
+    top: 0; /* 👈 PEGADO ARRIBA */
+    height: 100%; /* 👈 ALTURA COMPLETA */
+    width: 55px; /* 👈 MÁS PEQUEÑO */
+  }
+
+  .logo-image {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* Hamburguesa - CAMBIA ESTE VALOR PARA MOVERLA */
+  .hamburger {
+    position: absolute;
+    left: 85%; /* 🎯 CAMBIA AQUÍ: 50%=centro, 40%=izquierda, 30%=más izquierda */
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .nav {
+    top: 55px;
+    height: calc(100vh - 55px);
+  }
+
+  .nav-list li a {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .hamburger span {
+    width: 22px;
+    height: 2px;
+  }
+}
+
+/* Móviles muy pequeños (360px y menos) */
+@media (max-width: 360px) {
+  .header {
+    padding: 0 0.5rem 0 0; /* 👈 SIN PADDING IZQUIERDO */
+    justify-content: center;
+  }
+
+  .logo {
+    left: 0; /* 👈 PEGADO AL BORDE */
+    top: 0; /* 👈 PEGADO ARRIBA */
+    height: 100%; /* 👈 ALTURA COMPLETA */
+    width: 50px; /* 👈 MUY PEQUEÑO */
+  }
+
+  .logo-image {
+    width: 28px;
+    height: 28px;
+  }
+
+  /* Hamburguesa - CAMBIA ESTE VALOR PARA MOVERLA */
+  .hamburger {
+    position: absolute;
+    left: 50%; /* 🎯 CAMBIA AQUÍ: 50%=centro, 40%=izquierda, 30%=más izquierda */
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .nav-list li a {
+    padding: 0.7rem 1rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Overlay para cerrar menú en móviles */
+.nav-overlay {
+  display: none;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 60px);
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+@media (max-width: 640px) {
+  .nav-overlay.active {
+    display: block;
+  }
+}
+
+/* Animaciones suaves */
+@media (prefers-reduced-motion: no-preference) {
+  .header {
+    transition: all 0.3s ease;
+  }
+
+  .nav-list li a {
+    transition: all 0.3s ease;
+  }
+}
