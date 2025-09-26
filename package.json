@@ -2,7 +2,7 @@
   "name": "manitoweb",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://TU-USUARIO.github.io/webmanito",
+  "homepage": "https://alejandroherra.github.io/web-manito",
   "type": "module",
   "scripts": {
     "dev": "vite",

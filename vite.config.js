@@ -2,8 +2,9 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   plugins: [react()],
+
   build: {
     rollupOptions: {
       output: {
@@ -15,7 +16,6 @@ export default defineConfig({
       },
     },
     chunkSizeWarningLimit: 1000,
-    // Optimizaciones adicionales
     minify: "terser",
     terserOptions: {
       compress: {
@@ -24,11 +24,11 @@ export default defineConfig({
       },
     },
   },
-  // Optimización para desarrollo
   server: {
     hmr: {
       overlay: false,
     },
   },
-  base: "https://alejandroherra.github.io/web-manito",
-});
+  // Use command to determine the environment
+  base: command === "serve" ? "/" : "/web-manito/",
+}));

@@ -7,11 +7,11 @@ import Footer from "./components/Footer";
 import "./App.css";
 
 // Lazy loading de las páginas (code splitting)
-
 const Rooms = lazy(() => import("./paginas/Rooms"));
 const Contact = lazy(() => import("./paginas/Contact"));
 const Tours = lazy(() => import("./paginas/Tours"));
 const Invest = lazy(() => import("./paginas/Invest"));
+
 // Componente de loading mejorado
 const LoadingSpinner = () => (
   <div
@@ -29,13 +29,15 @@ const LoadingSpinner = () => (
 );
 
 function App() {
+  // Determine the basename based on the environment
+  const basename = import.meta.env.MODE === "production" ? "/web-manito" : "/";
+
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <Header />
       <Suspense fallback={<LoadingSpinner />}>
         <Routes>
           <Route path="/" element={<MainContent />} />
-
           <Route path="/rooms" element={<Rooms />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/tours" element={<Tours />} />
